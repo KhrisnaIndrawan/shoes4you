@@ -147,8 +147,8 @@ final shoesJsonData = [
     "retailPrice": 225,
     "thumbnail":
         "https://images.stockx.com/images/New-Balance-990v1-Carhartt-WIP-MiUSA-Dark-Navy-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1661522638",
-    "releaseDate": "",
-    "description": "",
+    "releaseDate": "2022-09-16",
+    "description": "New Balance recently released their first collaborative project with Carhartt WIP. Headlining the collection was a pair of the 990 V1, done in predominantly navy blue hairy suede and grey mesh.",
     "urlKey": "new-balance-990v1-carhartt-wip-miusa-dark-navy",
     "goatProductId": 1025194
   }

@@ -91,47 +91,70 @@ class DetailMobilePage extends StatelessWidget {
                 ],
               ),
               Container(
-                margin: const EdgeInsets.only(top: 16.0),
-                child: Text(
-                  shoe.brand,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 30.0,
-                    fontFamily: 'Staatliches',
-                  ),
+                margin: const EdgeInsets.only(top: 8.0),
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 2,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            shoe.brand,
+                            textAlign: TextAlign.start,
+                            style: const TextStyle(
+                                fontSize: 28.0,
+                                fontFamily: 'Staatliches',
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            shoe.shoeName,
+                            textAlign: TextAlign.start,
+                            style: const TextStyle(
+                                fontSize: 14.0,
+                                fontFamily: 'Staatliches',
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        '\$${shoe.retailPrice.toString()}',
+                        textAlign: TextAlign.end,
+                        style: const TextStyle(
+                            fontSize: 24.0,
+                            fontFamily: 'Staatliches',
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Container(
-                margin: const EdgeInsets.symmetric(vertical: 16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                margin: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    Column(
+                    Row(
                       children: <Widget>[
                         const Icon(Icons.calendar_today),
-                        const SizedBox(height: 8.0),
+                        const SizedBox(width: 8.0),
                         Text(
-                          shoe.retailPrice.toString(),
+                          shoe.releaseDate,
                           style: informationTextStyle,
                         ),
                       ],
                     ),
-                    Column(
+                    Row(
                       children: <Widget>[
-                        const Icon(Icons.access_time),
-                        const SizedBox(height: 8.0),
+                        const Icon(Icons.color_lens),
+                        const SizedBox(width: 8.0),
                         Text(
-                          shoe.retailPrice.toString(),
-                          style: informationTextStyle,
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        const Icon(Icons.monetization_on),
-                        const SizedBox(height: 8.0),
-                        Text(
-                          shoe.retailPrice.toString(),
+                          shoe.colorway,
                           style: informationTextStyle,
                         ),
                       ],
@@ -140,10 +163,10 @@ class DetailMobilePage extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Text(
                   shoe.description,
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.start,
                   style: const TextStyle(
                     fontSize: 16.0,
                     fontFamily: 'Oxygen',
