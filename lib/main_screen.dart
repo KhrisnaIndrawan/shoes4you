@@ -6,20 +6,19 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title:
-            Text('Shoes 4 You'),
-      ),
-      body: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-          if (constraints.maxWidth <= 600) {
-            return ShoeList();
-          } else if (constraints.maxWidth <= 1200) {
-            return ShoeGrid(gridCount: 4);
-          } else {
-            return ShoeGrid(gridCount: 6);
-          }
-        },
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            if (constraints.maxWidth <= 600) {
+              return ShoeList();
+            } else if (constraints.maxWidth <= 1200) {
+              return ShoeGrid(gridCount: 4);
+            } else {
+              return ShoeGrid(gridCount: 6);
+            }
+          },
+        ),
       ),
     );
   }
@@ -27,6 +26,7 @@ class MainScreen extends StatelessWidget {
 
 class ShoeList extends StatelessWidget {
   const ShoeList({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -34,38 +34,46 @@ class ShoeList extends StatelessWidget {
         final Shoe shoe = shoes[index];
         return InkWell(
           onTap: () {
-            // Navigator.push(context, MaterialPageRoute(builder: (context) {
-            //   return DetailScreen(place: shoe);
-            // }));
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return DetailScreen(shoe: shoe);
+            }));
           },
           child: Card(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: Image.network(shoe.thumbnail),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          shoe.brand,
-                          style: const TextStyle(fontSize: 16.0),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(shoe.retailPrice.toString()),
-                      ],
-                    ),
+            margin: const EdgeInsets.all(8.0),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: Image.network(shoe.thumbnail),
                   ),
-                )
-              ],
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            shoe.brand,
+                            style: const TextStyle(
+                                fontSize: 34.0, fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            '\$ ${shoe.retailPrice.toString()}',
+                            style: const TextStyle(fontSize: 28.0),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         );
@@ -88,12 +96,12 @@ class ShoeGrid extends StatelessWidget {
         crossAxisCount: gridCount,
         crossAxisSpacing: 16,
         mainAxisSpacing: 16,
-        children: shoes.map((place) {
+        children: shoes.map((shoe) {
           return InkWell(
             onTap: () {
-              // Navigator.push(context, MaterialPageRoute(builder: (context) {
-              //   return DetailScreen(place: place);
-              // }));
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return DetailScreen(shoe: shoe);
+              }));
             },
             child: Card(
               child: Column(
@@ -101,7 +109,7 @@ class ShoeGrid extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Image.network(
-                      place.thumbnail,
+                      shoe.thumbnail,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -109,7 +117,7 @@ class ShoeGrid extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
                     child: Text(
-                      place.brand,
+                      shoe.brand,
                       style: const TextStyle(
                         fontSize: 16.0,
                         fontWeight: FontWeight.bold,
@@ -119,7 +127,7 @@ class ShoeGrid extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
                     child: Text(
-                      place.retailPrice.toString(),
+                      shoe.retailPrice.toString(),
                     ),
                   ),
                 ],

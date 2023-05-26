@@ -98,7 +98,7 @@ final shoesJsonData = [
     "thumbnail":
         "https://images.stockx.com/images/NikeCraft-General-Purpose-Shoe-Tom-Sachs-Yellow-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1662558895",
     "releaseDate": "2022-09-02",
-    "description": "",
+    "description": "The NikeCraft General Purpose Shoe Tom Sachs Yellow is the result of a collaboration between Nike and Tom Sachs. The Tom Sachs Yellow NikeCraft takes on a functional design with a yellow mesh upper with tonal suede overlays and a contrasting white Swoosh on the lateral and medial sides. Orange tabs on the heel and tongue allow an easy on and off. The shoe sits a top a cream midsole packed with EVA for cushioning, while a black waffle-traction rubber outsole is for grip. The NikeCraft General Purpose Shoe Tom Sachs Yellow was released on the 2nd of September 2022, and originally retailed for \$110.",
     "urlKey": "nikecraft-general-purpose-shoe-tom-sachs-yellow",
     "goatProductId": 981386
   },
