@@ -211,7 +211,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 const Text(
-                  'Wisata Bandung',
+                  'Shoes 4 You',
                   style: TextStyle(
                     fontFamily: 'Staatliches',
                     fontSize: 32,
@@ -241,7 +241,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
                             mainAxisSize: MainAxisSize.max,
                             children: <Widget>[
                               Text(
-                                widget.shoe.brand,
+                                widget.shoe.shoeName,
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   fontSize: 30.0,
@@ -257,7 +257,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
                                       const Icon(Icons.calendar_today),
                                       const SizedBox(width: 8.0),
                                       Text(
-                                        widget.shoe.retailPrice.toString(),
+                                        widget.shoe.releaseDate,
                                         style: informationTextStyle,
                                       ),
                                     ],
@@ -267,10 +267,10 @@ class _DetailWebPageState extends State<DetailWebPage> {
                               ),
                               Row(
                                 children: <Widget>[
-                                  const Icon(Icons.access_time),
+                                  const Icon(Icons.money),
                                   const SizedBox(width: 8.0),
                                   Text(
-                                    widget.shoe.retailPrice.toString(),
+                                    '\$${widget.shoe.retailPrice.toString()}',
                                     style: informationTextStyle,
                                   ),
                                 ],
@@ -278,10 +278,10 @@ class _DetailWebPageState extends State<DetailWebPage> {
                               const SizedBox(height: 8.0),
                               Row(
                                 children: <Widget>[
-                                  const Icon(Icons.monetization_on),
+                                  const Icon(Icons.color_lens),
                                   const SizedBox(width: 8.0),
                                   Text(
-                                    widget.shoe.retailPrice.toString(),
+                                    widget.shoe.colorway,
                                     style: informationTextStyle,
                                   ),
                                 ],
