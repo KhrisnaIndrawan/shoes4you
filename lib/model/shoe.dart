@@ -1,41 +1,43 @@
 import 'dart:convert';
 
-List<Shoe> shoeFromJson(String str) => List<Shoe>.from(json.decode(str).map((x) => Shoe.fromJson(x)));
+List<Shoe> shoeFromJson(String str) =>
+    List<Shoe>.from(json.decode(str).map((x) => Shoe.fromJson(x)));
 
-String shoeToJson(List<Shoe> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String shoeToJson(List<Shoe> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Shoe {
-    String id;
-    String shoeName;
-    String brand;
-    String silhoutte;
-    String styleId;
-    String make;
-    String colorway;
-    int retailPrice;
-    String thumbnail;
-    String releaseDate;
-    String description;
-    String urlKey;
-    int goatProductId;
+  final String id;
+  final String shoeName;
+  final String brand;
+  final String silhoutte;
+  final String styleId;
+  final String make;
+  final String colorway;
+  final int retailPrice;
+  final String thumbnail;
+  final String releaseDate;
+  final String description;
+  final String urlKey;
+  final int goatProductId;
 
-    Shoe({
-        required this.id,
-        required this.shoeName,
-        required this.brand,
-        required this.silhoutte,
-        required this.styleId,
-        required this.make,
-        required this.colorway,
-        required this.retailPrice,
-        required this.thumbnail,
-        required this.releaseDate,
-        required this.description,
-        required this.urlKey,
-        required this.goatProductId,
-    });
+  Shoe({
+    required this.id,
+    required this.shoeName,
+    required this.brand,
+    required this.silhoutte,
+    required this.styleId,
+    required this.make,
+    required this.colorway,
+    required this.retailPrice,
+    required this.thumbnail,
+    required this.releaseDate,
+    required this.description,
+    required this.urlKey,
+    required this.goatProductId,
+  });
 
-    factory Shoe.fromJson(Map<String, dynamic> json) => Shoe(
+  factory Shoe.fromJson(Map<String, dynamic> json) => Shoe(
         id: json["id"],
         shoeName: json["shoeName"],
         brand: json["brand"],
@@ -49,9 +51,9 @@ class Shoe {
         description: json["description"],
         urlKey: json["urlKey"],
         goatProductId: json["goatProductId"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "id": id,
         "shoeName": shoeName,
         "brand": brand,
@@ -65,7 +67,7 @@ class Shoe {
         "description": description,
         "urlKey": urlKey,
         "goatProductId": goatProductId,
-    };
+      };
 }
 
 final shoesJsonData = [
@@ -98,7 +100,8 @@ final shoesJsonData = [
     "thumbnail":
         "https://images.stockx.com/images/NikeCraft-General-Purpose-Shoe-Tom-Sachs-Yellow-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1662558895",
     "releaseDate": "2022-09-02",
-    "description": "The NikeCraft General Purpose Shoe Tom Sachs Yellow is the result of a collaboration between Nike and Tom Sachs. The Tom Sachs Yellow NikeCraft takes on a functional design with a yellow mesh upper with tonal suede overlays and a contrasting white Swoosh on the lateral and medial sides. Orange tabs on the heel and tongue allow an easy on and off. The shoe sits a top a cream midsole packed with EVA for cushioning, while a black waffle-traction rubber outsole is for grip. The NikeCraft General Purpose Shoe Tom Sachs Yellow was released on the 2nd of September 2022, and originally retailed for \$110.",
+    "description":
+        "The NikeCraft General Purpose Shoe Tom Sachs Yellow is the result of a collaboration between Nike and Tom Sachs. The Tom Sachs Yellow NikeCraft takes on a functional design with a yellow mesh upper with tonal suede overlays and a contrasting white Swoosh on the lateral and medial sides. Orange tabs on the heel and tongue allow an easy on and off. The shoe sits a top a cream midsole packed with EVA for cushioning, while a black waffle-traction rubber outsole is for grip. The NikeCraft General Purpose Shoe Tom Sachs Yellow was released on the 2nd of September 2022, and originally retailed for \$110.",
     "urlKey": "nikecraft-general-purpose-shoe-tom-sachs-yellow",
     "goatProductId": 981386
   },
@@ -148,7 +151,8 @@ final shoesJsonData = [
     "thumbnail":
         "https://images.stockx.com/images/New-Balance-990v1-Carhartt-WIP-MiUSA-Dark-Navy-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1661522638",
     "releaseDate": "2022-09-16",
-    "description": "New Balance recently released their first collaborative project with Carhartt WIP. Headlining the collection was a pair of the 990 V1, done in predominantly navy blue hairy suede and grey mesh.",
+    "description":
+        "New Balance recently released their first collaborative project with Carhartt WIP. Headlining the collection was a pair of the 990 V1, done in predominantly navy blue hairy suede and grey mesh.",
     "urlKey": "new-balance-990v1-carhartt-wip-miusa-dark-navy",
     "goatProductId": 1025194
   }

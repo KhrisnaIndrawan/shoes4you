@@ -207,105 +207,112 @@ class _DetailWebPageState extends State<DetailWebPage> {
         child: Center(
           child: SizedBox(
             width: screenWidth <= 1200 ? 800 : 1200,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                const Text(
-                  'Shoes 4 You',
-                  style: TextStyle(
-                    fontFamily: 'Staatliches',
-                    fontSize: 32,
-                  ),
-                ),
-                const SizedBox(height: 32),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        children: [
-                          ClipRRect(
-                            child: Image.network(widget.shoe.thumbnail),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          const SizedBox(height: 16),
-                        ],
-                      ),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  const Text(
+                    'Shoes 4 You',
+                    style: TextStyle(
+                      fontFamily: 'Staatliches',
+                      fontSize: 32,
                     ),
-                    const SizedBox(width: 32),
-                    Expanded(
-                      child: Card(
-                        child: Container(
-                          padding: const EdgeInsets.all(16),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: <Widget>[
-                              Text(
-                                widget.shoe.shoeName,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 30.0,
-                                  fontFamily: 'Staatliches',
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
+                  ),
+                  const SizedBox(height: 32),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              child: Image.network(widget.shoe.thumbnail),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            const SizedBox(height: 16),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 32),
+                      Expanded(
+                        child: Card(
+                          child: Container(
+                            padding: const EdgeInsets.all(16),
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: <Widget>[
+                                  Text(
+                                    widget.shoe.shoeName,
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                      fontSize: 30.0,
+                                      fontFamily: 'Staatliches',
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: <Widget>[
+                                          const Icon(Icons.calendar_today),
+                                          const SizedBox(width: 8.0),
+                                          Text(
+                                            widget.shoe.releaseDate,
+                                            style: informationTextStyle,
+                                          ),
+                                        ],
+                                      ),
+                                      const FavoriteButton(),
+                                    ],
+                                  ),
                                   Row(
                                     children: <Widget>[
-                                      const Icon(Icons.calendar_today),
+                                      const Icon(Icons.money),
                                       const SizedBox(width: 8.0),
                                       Text(
-                                        widget.shoe.releaseDate,
+                                        '\$${widget.shoe.retailPrice.toString()}',
                                         style: informationTextStyle,
                                       ),
                                     ],
                                   ),
-                                  const FavoriteButton(),
-                                ],
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  const Icon(Icons.money),
-                                  const SizedBox(width: 8.0),
-                                  Text(
-                                    '\$${widget.shoe.retailPrice.toString()}',
-                                    style: informationTextStyle,
+                                  const SizedBox(height: 8.0),
+                                  Row(
+                                    children: <Widget>[
+                                      const Icon(Icons.color_lens),
+                                      const SizedBox(width: 8.0),
+                                      Expanded(
+                                        flex: 1,
+                                        child: Text(
+                                          widget.shoe.colorway,
+                                          style: informationTextStyle,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 16.0),
+                                    child: Text(
+                                      widget.shoe.description,
+                                      textAlign: TextAlign.justify,
+                                      style: const TextStyle(
+                                        fontSize: 16.0,
+                                        fontFamily: 'Oxygen',
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 8.0),
-                              Row(
-                                children: <Widget>[
-                                  const Icon(Icons.color_lens),
-                                  const SizedBox(width: 8.0),
-                                  Text(
-                                    widget.shoe.colorway,
-                                    style: informationTextStyle,
-                                  ),
-                                ],
-                              ),
-                              Container(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 16.0),
-                                child: Text(
-                                  widget.shoe.description,
-                                  textAlign: TextAlign.justify,
-                                  style: const TextStyle(
-                                    fontSize: 16.0,
-                                    fontFamily: 'Oxygen',
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
